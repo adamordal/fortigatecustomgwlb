@@ -3,7 +3,8 @@
 ## Deployment Scenarios
 
 1. **Full Deployment**:
-    - Use the `full-deploy` folder if the VPC has not been built.
+    - Use the `full-deploy` folder if the VPC has not been built. Only option today.
+    - Will add more deployment scenarios to accomodate LZA/other brownfield models as necessary.
 
 ## Topology Diagram
 
