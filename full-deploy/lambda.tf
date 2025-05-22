@@ -22,7 +22,7 @@ resource "aws_lambda_permission" "allow_cloudwatch_alarm" {
   count         = length(var.availability_zones)
   statement_id  = "AllowCloudWatchInvoke"
   action        = "lambda:InvokeFunction"
-  principal     = "cloudwatch.amazonaws.com"
+  principal     = "lambda.alarms.cloudwatch.amazonaws.com"
   function_name = aws_lambda_function.status_check_lambda[count.index].function_name
   source_arn    = aws_cloudwatch_metric_alarm.ec2_status_check_alarm[count.index].arn
 }
@@ -64,8 +64,8 @@ resource "aws_iam_role_policy" "lambda_policy" {
         Action = [
           "ec2:CreateRoute",
           "ec2:DeleteRoute",
-          "ec2:DescribeRouteTables", # Allows describing the route table
-          "ec2:ModifyRouteTable"     # Allows modifying the route table
+          "ec2:DescribeRouteTables", 
+          "ec2:ModifyRouteTable"     
         ]
         Effect   = "Allow"
         Resource = "*"
