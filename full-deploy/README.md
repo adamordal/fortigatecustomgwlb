@@ -1,4 +1,4 @@
-# Palo Alto Firewall Deployment with Gateway Load Balancer
+# Fortigate Firewall Deployment with Gateway Load Balancer
 
 ## Prerequisites
 
