@@ -10,8 +10,8 @@ resource "aws_lambda_function" "status_check_lambda" {
 
   environment {
     variables = {
-    vpcendpoint1 = aws_vpc_endpoint.gwlbe_ns_endpoint[count.index].id
-    vpcendpoint2 = aws_vpc_endpoint.gwlbe_ns_endpoint[1 - count.index].id
+      vpcendpoint1 = aws_vpc_endpoint.gwlbe_ns_endpoint[count.index].id
+      vpcendpoint2 = aws_vpc_endpoint.gwlbe_ns_endpoint[1 - count.index].id
       routetable   = aws_route_table.sec_txgw_rt[count.index].id
       region       = var.region
     }
@@ -64,8 +64,8 @@ resource "aws_iam_role_policy" "lambda_policy" {
         Action = [
           "ec2:CreateRoute",
           "ec2:DeleteRoute",
-          "ec2:DescribeRouteTables", 
-          "ec2:ModifyRouteTable"     
+          "ec2:DescribeRouteTables",
+          "ec2:ModifyRouteTable"
         ]
         Effect   = "Allow"
         Resource = "*"
